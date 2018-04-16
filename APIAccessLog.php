@@ -2,13 +2,13 @@
 class APIClassLog
 {
 
-	private $dbUser="BMS";
-	private $dbPass="Bms@123";
-	private $dbAccessLink="192.168.7.51:1521/orcl";
+	private $dbUser="";
+	private $dbPass="";
+	private $dbAccessLink="";
 	private $modeOfDevelopment=0;
-	private $logAPITable="BMS_API_REQUEST_LOG";
-	private $baseURL="http://localhost/bms_api/billing_pdf";
-	private $billingPDFLocation="../billing_pdf/";
+	private $logAPITable="";
+	private $baseURL="";
+	private $billingPDFLocation="";
 
 	private function Auth()
 	{
@@ -186,17 +186,7 @@ class APIClassLog
 		if(count($data)>0)
 		{
 			$files=$data[0];
-			/*header('Content-Disposition: attachment; filename="'.basename($files).'"');
-			header('Content-Length: '.filesize($files));
-			readfile($files);// for download */
-
-				/*
-				header("Content-type: application/pdf");
-				header("Content-Disposition: inline; filename=".basename($files));
-				@readfile($files);
-				*/
-
-				return basename($files);
+			return basename($files);
 		}
 		else
 		{
