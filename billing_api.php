@@ -19,6 +19,7 @@ include('APIAccessLog.php');
 $obj=new APIClassLog();
 
 $auth=$obj->APILoginCheck($username,$password);
+
 if($username=='bms' && $auth==1)
 {
 	

@@ -2,13 +2,13 @@
 class APIClassLog
 {
 
-	private $dbUser="";
-	private $dbPass="";
-	private $dbAccessLink="";
+	private $dbUser="BMS";
+	private $dbPass="Bms@123";
+	private $dbAccessLink="192.168.7.51:1521/orcl";
 	private $modeOfDevelopment=0;
-	private $logAPITable="";
-	private $baseURL="";
-	private $billingPDFLocation="";
+	private $logAPITable="BMS_API_REQUEST_LOG";
+	private $baseURL="http://localhost/bms_api/billing_pdf";
+	private $billingPDFLocation="../billing_pdf/";
 
 	private function Auth()
 	{
