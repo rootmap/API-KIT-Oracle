@@ -37,23 +37,27 @@ class APIClassLog
 		return $returnURL;
 	}
 
-	public function APILoginCheck(){
-		$conn=$this->Auth();
-		$mdnQuery = "SELECT count(ID) as IS_FOUND FROM API_USER";
-		$stid = oci_parse($conn, $mdnQuery);
-	    oci_execute($stid);
-		
-		while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
-	        $value = $row['IS_FOUND'];
-	        
-	    }
-		
-		if($value==0){
-			return 0;
+	public function APILoginCheck($username='',$password=''){
+		if(!empty($username) && !empty($password))
+		{
+			$conn=$this->Auth();
+			$mdnQuery = "SELECT count(ID) as IS_FOUND FROM BMS_API_USER WHERE USER_NAME='$username' AND PASSWORD='$password'";
+			$stid = oci_parse($conn, $mdnQuery);
+		    oci_execute($stid);
+			
+			while (($row = oci_fetch_array($stid, OCI_ASSOC)) != false) {
+		        $value = $row['IS_FOUND'];
+		    }
+			
+			if($value==0){
+				return 0;
+			}
+			else{
+				return 1;
+			}
 		}
-		else{
-			return 1;
-		}
+		
+		return 0;
 	}
 
 
